@@ -8,7 +8,6 @@ A PHP library for building and working with the [JSON Resume](https://jsonresume
 [![Tests](https://github.com/juststeveking/resume-php/actions/workflows/tests.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/tests.yml)
 [![Static Analysis](https://github.com/juststeveking/resume-php/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/static-analysis.yml)
 [![Code Style](https://github.com/juststeveking/resume-php/actions/workflows/code-style.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/code-style.yml)
-[![PHP Compatibility](https://github.com/juststeveking/resume-php/actions/workflows/compatibility.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/compatibility.yml)
 
 ## Introduction
 
@@ -207,19 +206,13 @@ Runs PHPUnit tests on PHP 8.4 to ensure all functionality works as expected.
 
 [![Static Analysis](https://github.com/juststeveking/resume-php/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/static-analysis.yml)
 
-Uses PHPStan to perform static code analysis and catch potential bugs.
+Use PHPStan to perform static code analysis and catch potential bugs.
 
 ### Code Style
 
 [![Code Style](https://github.com/juststeveking/resume-php/actions/workflows/code-style.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/code-style.yml)
 
 Ensures code follows the defined style rules using Laravel Pint.
-
-### PHP Compatibility
-
-[![PHP Compatibility](https://github.com/juststeveking/resume-php/actions/workflows/compatibility.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/compatibility.yml)
-
-Ensures that the code is compatible with PHP 8.4 using PHP-CS-Fixer with the PHP 8.4 migration ruleset.
 
 ### Dependency Updates
 
