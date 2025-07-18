@@ -8,7 +8,6 @@ A PHP library for building and working with the [JSON Resume](https://jsonresume
 [![Tests](https://github.com/juststeveking/resume-php/actions/workflows/tests.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/tests.yml)
 [![Static Analysis](https://github.com/juststeveking/resume-php/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/static-analysis.yml)
 [![Code Style](https://github.com/juststeveking/resume-php/actions/workflows/code-style.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/code-style.yml)
-[![Security Analysis](https://github.com/juststeveking/resume-php/actions/workflows/security.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/security.yml)
 [![PHP Compatibility](https://github.com/juststeveking/resume-php/actions/workflows/compatibility.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/compatibility.yml)
 
 ## Introduction
@@ -215,12 +214,6 @@ Uses PHPStan to perform static code analysis and catch potential bugs.
 [![Code Style](https://github.com/juststeveking/resume-php/actions/workflows/code-style.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/code-style.yml)
 
 Ensures code follows the defined style rules using Laravel Pint.
-
-### Security Analysis
-
-[![Security Analysis](https://github.com/juststeveking/resume-php/actions/workflows/security.yml/badge.svg)](https://github.com/juststeveking/resume-php/actions/workflows/security.yml)
-
-Uses GitHub's CodeQL to scan for security vulnerabilities in the code.
 
 ### PHP Compatibility
 
