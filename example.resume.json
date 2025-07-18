@@ -1,0 +1,87 @@
+{
+  "$schema": "https://jsonresume.org/schema/schema.json",
+  "basics": {
+    "name": "Spock",
+    "label": "Science Officer & First Officer",
+    "image": "https://example.com/images/spock-avatar.png",
+    "email": "spock@starfleet.ufp",
+    "phone": "+1-555-0100",
+    "url": "https://starfleet.ufp/officers/spock",
+    "summary": "Highly logical and analytical officer serving as Science Officer and First Officer aboard the USS Enterprise. Expert in astrophysics, diplomacy, and Vulcan philosophy.",
+    "location": {
+      "address": "USS Enterprise",
+      "city": "Deep Space",
+      "countryCode": "UFP",
+      "region": "Alpha Quadrant"
+    },
+    "profiles": [
+      {
+        "network": "Starfleet Database",
+        "username": "spock",
+        "url": "https://starfleet.ufp/profiles/spock"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Starfleet Command",
+      "position": "Science Officer & First Officer",
+      "url": "https://starfleet.ufp",
+      "startDate": "2265-01-01",
+      "summary": "Serving aboard the USS Enterprise, responsible for scientific analysis, mission strategy, and acting as second-in-command.",
+      "highlights": [
+        "Led scientific missions exploring uncharted space",
+        "Mediated numerous diplomatic engagements with alien species",
+        "Pioneered research in astrophysics and space phenomena"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Science & Analysis",
+      "level": "Expert",
+      "keywords": ["Astrophysics", "Xenobiology", "Vulcan Logic"]
+    },
+    {
+      "name": "Command & Strategy",
+      "level": "Advanced",
+      "keywords": ["Starship Operations", "Tactical Planning", "Diplomacy"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Vulcan Science Academy",
+      "area": "Advanced Sciences",
+      "studyType": "Doctorate",
+      "startDate": "2240-09-01",
+      "endDate": "2250-06-30"
+    }
+  ],
+  "languages": [
+    {
+      "language": "Vulcan",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Logic and Philosophy",
+      "keywords": ["Vulcan ethics", "Meditation"]
+    },
+    {
+      "name": "Space Exploration",
+      "keywords": ["Astrophysics", "First Contact"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Enterprise Scientific Missions",
+      "description": "Coordinated and led multiple exploratory missions throughout the Alpha Quadrant.",
+      "url": "https://starfleet.ufp/missions/enterprise"
+    }
+  ]
+}

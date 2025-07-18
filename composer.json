@@ -1,0 +1,71 @@
+{
+  "name": "juststeveking/resume-php",
+  "description": "A PHP library for building and working with the JSON resume schema.",
+  "type": "library",
+  "keywords": [
+    "resume",
+    "json",
+    "schema",
+    "php",
+    "library"
+  ],
+  "homepage": "https://github.com/juststeveking/resume-php",
+  "require": {
+    "php": "^8.4",
+    "opis/json-schema": "^2.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^12.1",
+    "roave/security-advisories": "dev-latest",
+    "phpstan/phpstan": "^2.1",
+    "laravel/pint": "^1.24",
+    "rector/rector": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "JustSteveKing\\Resume\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "role": "Developer",
+      "name": "Steve McDougall",
+      "email": "juststevemcd@gmail.com",
+      "homepage": "https://juststeveking.link"
+    }
+  ],
+  "scripts": {
+    "lint": [
+      "./vendor/bin/pint --test"
+    ],
+    "pint": [
+      "./vendor/bin/pint"
+    ],
+    "rector": [
+      "./vendor/bin/rector process --dry-run"
+    ],
+    "refactor": [
+      "./vendor/bin/rector process"
+    ],
+    "stan": [
+      "./vendor/bin/phpstan analyse --memory-limit=-1"
+    ],
+    "test": [
+      "./vendor/bin/phpunit --testdox"
+    ]
+  },
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true,
+      "carthage-software/mago": true
+    }
+  }
+}
