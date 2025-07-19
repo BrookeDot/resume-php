@@ -173,7 +173,7 @@ and formats them for semantic web consumption.
 ### Example
 
 ```php
-$jsonLd = $resume->toJsonLd($resume);
+$jsonLd = $resume->toJsonLd();
 echo json_encode($jsonLd, JSON_PRETTY_PRINT);
 ```
 
