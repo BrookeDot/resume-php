@@ -6,6 +6,7 @@ namespace JustSteveKing\Resume\DataObjects;
 
 use JsonSerializable;
 use JustSteveKing\Resume\Attributes\Field;
+use JustSteveKing\Resume\Enums\Network;
 use JustSteveKing\Resume\Enums\ResumeSchema;
 
 final readonly class Resume implements JsonSerializable
@@ -109,6 +110,31 @@ final readonly class Resume implements JsonSerializable
             'has_volunteer_experience' => ! empty($this->volunteer),
             'has_awards' => ! empty($this->awards),
             'has_publications' => ! empty($this->publications),
+        ];
+    }
+
+    /**
+     * Transform the résumé into a structured array for JSON-LD.
+     *
+     * @param Resume $resume
+     * @return array<string, mixed>
+     */
+    public function toJsonLd(Resume $resume): array
+    {
+        return [
+            '@context' => 'https://schema.org',
+            '@type' => 'Person',
+            'name' => $resume->basics->name,
+            'url' => $resume->basics->url,
+            'jobTitle' => $resume->basics->label,
+            'sameAs' => array_filter(array_map(
+                static fn($profile) => $profile->url,
+                array_filter($resume->basics->profiles, static fn($profile) => $profile->network instanceof Network),
+            )),
+            'knowsAbout' => array_map(
+                static fn($skill) => $skill->name,
+                $resume->skills
+            ),
         ];
     }
 }
