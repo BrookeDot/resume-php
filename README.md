@@ -147,6 +147,38 @@ For a complete example of building a résumé with all available sections, see t
 - Certificates
 - References
 
+## JSON-LD Transformation
+
+Resume PHP provides a method to transform resume data into `JSON-LD` format using the `toJsonLd()` method on the `Resume` object.
+
+JSON-LD (JavaScript Object Notation for Linked Data) is a lightweight format for structuring data that is easily understood by search engines and web services.
+
+### How it works:
+
+The `toJsonLd()` method converts your résumé into a structured array following the `schema.org/Person` specification. It extracts key fields such as:
+- name
+- job title
+- website
+- social profiles
+- skills
+
+and formats them for semantic web consumption.
+
+### Why it’s important:
+
+- **SEO & Discoverability**: JSON-LD enables search engines to better understand and index your résumé, improving visibility in search results.
+- **Interoperability**: Many platforms and tools support JSON-LD, making it easier to share and integrate your resume data.
+- **Standardization**: Using schema.org ensures your résumé follows widely accepted standards for personal data representation.
+
+### Example
+
+```php
+$jsonLd = $resume->toJsonLd();
+echo json_encode($jsonLd, JSON_PRETTY_PRINT);
+```
+
+This will output a structured JSON-LD object ready for embedding in web pages or sharing with compatible services.
+
 ## Job Description Builder
 
 The library also includes a `JobDescriptionBuilder` for creating structured job descriptions following [the in progress JSON Job Description schema](https://jsonresume.org/job-description-schema/).

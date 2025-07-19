@@ -111,4 +111,28 @@ final readonly class Resume implements JsonSerializable
             'has_publications' => ! empty($this->publications),
         ];
     }
+
+    /**
+     * Transform the résumé into a structured array for JSON-LD.
+     *
+     * @return array<string, mixed>
+     */
+    public function toJsonLd(): array
+    {
+        return [
+            '@context' => 'https://schema.org',
+            '@type' => 'Person',
+            'name' => $this->basics->name,
+            'url' => $this->basics->url,
+            'jobTitle' => $this->basics->label,
+            'sameAs' => array_filter(array_map(
+                static fn($profile): ?string => $profile->url,
+                $this->basics->profiles,
+            )),
+            'knowsAbout' => array_map(
+                static fn($skill): string => $skill->name,
+                $this->skills,
+            ),
+        ];
+    }
 }
