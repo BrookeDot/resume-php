@@ -25,12 +25,12 @@ final class ResumeTest extends PackageTestCase
                 new Profile(
                     network: Network::GitHub,
                     username: 'JaneDoe',
-                    url: 'https://github.com/JaneDoe'
+                    url: 'https://github.com/JaneDoe',
                 ),
                 new Profile(
                     network: Network::Twitter,
                     username: 'JaneDoe',
-                    url: 'https://twitter.com/JaneDoe'
+                    url: 'https://twitter.com/JaneDoe',
                 ),
             ],
         );
@@ -43,7 +43,7 @@ final class ResumeTest extends PackageTestCase
         $resume = new Resume(
             basics: $basics,
             skills: $skills,
-            schema: ResumeSchema::V1
+            schema: ResumeSchema::V1,
         );
 
         $result = $resume->toJsonLd($resume);
@@ -68,13 +68,13 @@ final class ResumeTest extends PackageTestCase
             label: 'Developer',
             email: 'john@example.com',
             url: 'https://johnsmith.dev',
-            profiles: []
+            profiles: [],
         );
 
         $resume = new Resume(
             basics: $basics,
             skills: [],
-            schema: ResumeSchema::V1
+            schema: ResumeSchema::V1,
         );
 
         $result = $resume->toJsonLd($resume);
