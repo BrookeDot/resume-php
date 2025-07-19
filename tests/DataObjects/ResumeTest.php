@@ -46,7 +46,7 @@ final class ResumeTest extends PackageTestCase
             schema: ResumeSchema::V1,
         );
 
-        $result = $resume->toJsonLd($resume);
+        $result = $resume->toJsonLd();
 
         $this->assertIsArray($result);
         $this->assertSame('https://schema.org', $result['@context']);
@@ -77,7 +77,7 @@ final class ResumeTest extends PackageTestCase
             schema: ResumeSchema::V1,
         );
 
-        $result = $resume->toJsonLd($resume);
+        $result = $resume->toJsonLd();
 
         $this->assertEmpty($result['sameAs']);
         $this->assertEmpty($result['knowsAbout']);

@@ -115,24 +115,23 @@ final readonly class Resume implements JsonSerializable
     /**
      * Transform the résumé into a structured array for JSON-LD.
      *
-     * @param Resume $resume
      * @return array<string, mixed>
      */
-    public function toJsonLd(Resume $resume): array
+    public function toJsonLd(): array
     {
         return [
             '@context' => 'https://schema.org',
             '@type' => 'Person',
-            'name' => $resume->basics->name,
-            'url' => $resume->basics->url,
-            'jobTitle' => $resume->basics->label,
+            'name' => $this->basics->name,
+            'url' => $this->basics->url,
+            'jobTitle' => $this->basics->label,
             'sameAs' => array_filter(array_map(
                 static fn($profile): ?string => $profile->url,
-                $resume->basics->profiles,
+                $this->basics->profiles,
             )),
             'knowsAbout' => array_map(
                 static fn($skill): string => $skill->name,
-                $resume->skills,
+                $this->skills,
             ),
         ];
     }
