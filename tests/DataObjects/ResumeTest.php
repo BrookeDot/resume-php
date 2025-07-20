@@ -10,11 +10,13 @@ use JustSteveKing\Resume\DataObjects\Resume;
 use JustSteveKing\Resume\DataObjects\Skill;
 use JustSteveKing\Resume\Enums\Network;
 use JustSteveKing\Resume\Enums\ResumeSchema;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\PackageTestCase;
 
 final class ResumeTest extends PackageTestCase
 {
-    public function test_it_outputs_full_markdown(): void
+    #[Test]
+    public function it_outputs_full_markdown(): void
     {
         $markdown = $this->buildCompleteResume()->toMarkdown();
 
@@ -26,7 +28,8 @@ final class ResumeTest extends PackageTestCase
         $this->assertStringContainsString('Led development of core platform features', $markdown);
     }
 
-    public function test_it_can_exclude_work_section(): void
+    #[Test]
+    public function it_can_exclude_work_section(): void
     {
         $markdown = $this->buildCompleteResume()->toMarkdown([
             'work' => false,
@@ -36,7 +39,8 @@ final class ResumeTest extends PackageTestCase
         $this->assertStringContainsString('# John Doe', $markdown);
     }
 
-    public function test_it_can_output_only_basics(): void
+    #[Test]
+    public function it_can_output_only_basics(): void
     {
         $markdown = $this->buildCompleteResume()->toMarkdown([
             'basics' => true,
@@ -54,7 +58,8 @@ final class ResumeTest extends PackageTestCase
         $this->assertStringNotContainsString('## 🎓 Education', $markdown);
     }
 
-    public function test_it_handles_empty_sections_gracefully(): void
+    #[Test]
+    public function it_handles_empty_sections_gracefully(): void
     {
         $emptyResume = new Resume(
             basics: new Basics(
@@ -83,18 +88,18 @@ final class ResumeTest extends PackageTestCase
         $this->assertStringNotContainsString('## 💼 Work Experience', $markdown);
     }
 
-    public function test_it_outputs_social_profiles(): void
+    #[Test]
+    public function it_outputs_social_profiles(): void
     {
         $markdown = $this->buildCompleteResume()->toMarkdown([
-            'include' => [
-                'profiles' => true,
-            ],
+            'profiles' => true,
         ]);
 
         $this->assertStringContainsString('[github](https://github.com/johndoe)', $markdown);
     }
 
-    public function testTransformReturnsCorrectJsonLdStructure(): void
+    #[Test]
+    public function transform_returns_correct_json_ld_structure(): void
     {
         $basics = new Basics(
             name: 'Jane Doe',
@@ -141,7 +146,8 @@ final class ResumeTest extends PackageTestCase
         $this->assertEquals(['PHP', 'JavaScript'], $result['knowsAbout']);
     }
 
-    public function testTransformHandlesMissingProfilesAndSkills(): void
+    #[Test]
+    public function transform_handles_missing_profiles_and_skills(): void
     {
         $basics = new Basics(
             name: 'John Smith',
