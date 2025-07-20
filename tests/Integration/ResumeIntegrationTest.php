@@ -5,20 +5,10 @@ declare(strict_types=1);
 namespace Tests\Integration;
 
 use JustSteveKing\Resume\Builders\ResumeBuilder;
-use JustSteveKing\Resume\DataObjects\Award;
 use JustSteveKing\Resume\DataObjects\Basics;
-use JustSteveKing\Resume\DataObjects\Education;
-use JustSteveKing\Resume\DataObjects\Language;
-use JustSteveKing\Resume\DataObjects\Location;
-use JustSteveKing\Resume\DataObjects\Profile;
-use JustSteveKing\Resume\DataObjects\Project;
-use JustSteveKing\Resume\DataObjects\Publication;
 use JustSteveKing\Resume\DataObjects\Resume;
 use JustSteveKing\Resume\DataObjects\Skill;
-use JustSteveKing\Resume\DataObjects\Volunteer;
 use JustSteveKing\Resume\DataObjects\Work;
-use JustSteveKing\Resume\Enums\EducationLevel;
-use JustSteveKing\Resume\Enums\Network;
 use JustSteveKing\Resume\Enums\SkillLevel;
 use Tests\PackageTestCase;
 
@@ -105,7 +95,7 @@ final class ResumeIntegrationTest extends PackageTestCase
         $startTime = microtime(true);
 
         // Build a résumé with many entries
-        $resume = (new ResumeBuilder())
+        $resume = new ResumeBuilder()
             ->basics(new Basics(
                 name: 'John Doe',
                 label: 'Software Engineer',
@@ -135,7 +125,7 @@ final class ResumeIntegrationTest extends PackageTestCase
         $json = json_encode($builtResume);
 
         // Build a second resume with the same structure
-        $secondResume = (new ResumeBuilder())
+        $secondResume = new ResumeBuilder()
             ->basics(new Basics(
                 name: 'John Doe',
                 label: 'Software Engineer',
@@ -168,101 +158,8 @@ final class ResumeIntegrationTest extends PackageTestCase
 
         // Should complete within reasonable time (adjust threshold as needed)
         $this->assertLessThan(1.0, $executionTime, 'Resume processing took too long');
-        $this->assertInstanceOf(Resume::class, $builtResume);
         $this->assertCount(50, $builtResume->work);
         $this->assertCount(100, $builtResume->skills);
-    }
-
-    private function buildCompleteResume(): Resume
-    {
-        $location = new Location(
-            address: '123 Main St',
-            postalCode: '94105',
-            city: 'San Francisco',
-            countryCode: 'US',
-            region: 'CA',
-        );
-
-        $profiles = [
-            new Profile(Network::GitHub, 'johndoe', 'https://github.com/johndoe'),
-            new Profile(Network::LinkedIn, 'johndoe', 'https://linkedin.com/in/johndoe'),
-        ];
-
-        $basics = new Basics(
-            name: 'John Doe',
-            label: 'Software Engineer',
-            email: 'john@example.com',
-            url: 'https://johndoe.com',
-            summary: 'Experienced software engineer with 5+ years in web development.',
-            location: $location,
-            profiles: $profiles,
-        );
-
-        return (new ResumeBuilder())
-            ->basics($basics)
-            ->addWork(new Work(
-                name: 'Tech Corp',
-                position: 'Senior Developer',
-                startDate: '2020-01-01',
-                endDate: '2023-12-31',
-                summary: 'Led development of core platform features',
-                highlights: ['Improved performance by 40%', 'Mentored junior developers'],
-            ))
-            ->addWork(new Work(
-                name: 'Startup Inc',
-                position: 'Full Stack Developer',
-                startDate: '2018-01-01',
-                endDate: '2019-12-31',
-            ))
-            ->addEducation(new Education(
-                institution: 'University of Technology',
-                area: 'Computer Science',
-                studyType: EducationLevel::Bachelor,
-                startDate: '2014-09-01',
-                endDate: '2018-06-01',
-            ))
-            ->addSkill(new Skill(
-                name: 'PHP',
-                level: SkillLevel::Expert,
-                keywords: ['Laravel', 'Symfony', 'API Development'],
-            ))
-            ->addSkill(new Skill(
-                name: 'JavaScript',
-                level: SkillLevel::Advanced,
-                keywords: ['React', 'Node.js', 'TypeScript'],
-            ))
-            ->addSkill(new Skill(
-                name: 'Python',
-                level: SkillLevel::Intermediate,
-                keywords: ['Django', 'Data Analysis'],
-            ))
-            ->addProject(new Project(
-                name: 'E-commerce Platform',
-                description: 'Built a full-stack e-commerce platform',
-                startDate: '2023-01-01',
-                endDate: '2023-06-01',
-                url: 'https://github.com/johndoe/ecommerce',
-                highlights: ['Handled 10k+ users', 'Implemented payment gateway'],
-            ))
-            ->addLanguage(new Language('English', 'Native'))
-            ->addLanguage(new Language('Spanish', 'Conversational'))
-            ->addVolunteer(new Volunteer(
-                organization: 'Local Food Bank',
-                position: 'Web Developer',
-                startDate: '2019-01-01',
-                endDate: '2020-01-01',
-            ))
-            ->addAward(new Award(
-                title: 'Employee of the Year',
-                date: '2022-12-01',
-                awarder: 'Tech Corp',
-            ))
-            ->addPublication(new Publication(
-                name: 'Modern PHP Development',
-                publisher: 'Tech Journal',
-                releaseDate: '2023-03-01',
-            ))
-            ->build();
     }
 
     private function buildModifiedResume(): Resume
