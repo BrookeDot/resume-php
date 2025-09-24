@@ -18,8 +18,8 @@ final readonly class Work implements JsonSerializable
      * Create a new Work instance.
      *
      * @param string $name The name of the company or organization.
-     * @param string $location The location of the company or organization.
      * @param string $position The position held at the company.
+     * @param string|null $location The location of the company or organization.
      * @param string|null $url The URL of the company or organization.
      * @param string|null $startDate The start date of employment in YYYY-MM-DD format.
      * @param string|null $endDate The end date of employment in YYYY-MM-DD format.
