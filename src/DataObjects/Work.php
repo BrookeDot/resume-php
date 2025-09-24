@@ -18,6 +18,7 @@ final readonly class Work implements JsonSerializable
      * Create a new Work instance.
      *
      * @param string $name The name of the company or organization.
+     * @param string $location The location of the company or organization.
      * @param string $position The position held at the company.
      * @param string|null $url The URL of the company or organization.
      * @param string|null $startDate The start date of employment in YYYY-MM-DD format.
@@ -28,6 +29,8 @@ final readonly class Work implements JsonSerializable
     public function __construct(
         #[Field('name')]
         public string $name,
+        #[Field('location')]
+        public string $location,
         #[Field('position')]
         public string $position,
         #[Field('url')]
@@ -59,6 +62,7 @@ final readonly class Work implements JsonSerializable
      *
      * @return array{
      *     name: string,
+     *     location: string,
      *     position: string,
      *     url: ?string,
      *     startDate: ?string,
@@ -71,6 +75,7 @@ final readonly class Work implements JsonSerializable
     {
         return [
             'name' => $this->name,
+            'location' => $this->location,
             'position' => $this->position,
             'url' => $this->url,
             'startDate' => $this->startDate,
