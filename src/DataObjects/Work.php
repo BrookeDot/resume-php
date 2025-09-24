@@ -29,10 +29,10 @@ final readonly class Work implements JsonSerializable
     public function __construct(
         #[Field('name')]
         public string $name,
-        #[Field('location')]
-        public string $location,
         #[Field('position')]
         public string $position,
+        #[Field('location')]
+        public ?string $location = null,
         #[Field('url')]
         public ?string $url = null,
         #[Field('startDate')]
@@ -62,8 +62,8 @@ final readonly class Work implements JsonSerializable
      *
      * @return array{
      *     name: string,
-     *     location: string,
      *     position: string,
+     *     location: ?string,
      *     url: ?string,
      *     startDate: ?string,
      *     endDate: ?string,
